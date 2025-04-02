@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Image Example</title>
+    <title>Scrollable Image Example</title>
     <style>
-        /* General styles for the body and html to cover full screen */
+        /* General styles for the body and html */
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         /* Style for the container to hold the image */
         .image-container {
             position: relative;
-            height: 100%;
+            height: 100%; /* Full viewport height */
             width: 100%;
-            overflow: hidden;
+            overflow: auto; /* Allow vertical scrolling */
         }
 
         /* Style for the image */
         .background-image {
             position: absolute;
-            top: 50%;
+            top: 0;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
@@ -36,14 +37,16 @@
         /* Mobile-specific zoom-in effect */
         @media (max-width: 768px) {
             .background-image {
-                transform: translate(-50%, -50%) scale(1.5); /* Zoom in on mobile */
+                transform: translateX(-50%) scale(1.5); /* Zoom in on mobile */
+                height: auto;
+                max-height: 100vh; /* Make sure it fits on smaller screens */
             }
         }
     </style>
 </head>
 <body>
     <div class="image-container">
-        <img class="background-image" src="https://imgur.com/Jx9x3w4.jpg" alt="Responsive Image">
+        <img class="background-image" src="https://imgur.com/Jx9x3w4.jpg" alt="Scrollable Image">
     </div>
 </body>
 </html>
