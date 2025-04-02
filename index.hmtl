@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Example</title>
+    <style>
+        /* General styles for the body and html to cover full screen */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Style for the container to hold the image */
+        .image-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Style for the image */
+        .background-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        /* Mobile-specific zoom-in effect */
+        @media (max-width: 768px) {
+            .background-image {
+                transform: translate(-50%, -50%) scale(1.5); /* Zoom in on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img class="background-image" src="https://imgur.com/Jx9x3w4.jpg" alt="Responsive Image">
+    </div>
+</body>
+</html>
